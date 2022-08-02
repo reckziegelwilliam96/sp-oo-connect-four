@@ -19,7 +19,7 @@ class Game {
     makeBoard() {
       this.board = [];
       for(let y = 0; y < this.height; y++){
-        board.push(Array.from({ length: this.width }));
+        this.board.push(Array.from({ length: this.width }));
       }
     }
     makeHtmlBoard() {
