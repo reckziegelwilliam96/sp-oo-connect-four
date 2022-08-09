@@ -89,7 +89,7 @@ class Game {
       // check for win
       if (this.checkForWin()) {
         this.gameOver = true;
-        return this.endGame(`Player ${currPlayer} won!`);
+        return this.endGame(`Player ${this.currPlayer.color} won!`);
       }
   
       // check for tie
@@ -102,13 +102,14 @@ class Game {
       }
     checkForWin(){
         const _win = cells => {
-          cells.every(
+          return cells.every(
             ([y, x]) =>
               y >= 0 &&
               y < this.height &&
               x >= 0 &&
               x < this.width &&
-              this.board[y][x] === this.currPlayer
+              this.board[y][x] &&
+              this.board[y][x].color === this.currPlayer.color
           );
         }
       
